@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link to="Hello">Hello</router-link>
+    <!-- route가 표시될 부분 배치 -->
+    <router-view></router-view>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- vue 2version router CDN -->
+  <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
+  <script>
+    const HelloComponent = {
+      template: '<h3> Hello :) </h3>',
+    }
+    const newComponent = {
+      template: '<h3> New </h3>',
+    }
+
+    // vue-router
+    const router = new VueRouter({
+      mode: 'history',
+      routes: [
+        {
+          path: '/hello', // URL 경로
+          component: HelloComponent, // 보여줄 component
+        },
+        {
+          path: '/user',
+          component: newComponent,
+        },
+      ],
+    })
+
+    new Vue({
+      el: "#app",
+      router: router,
+    })
+  </script>
+</body>
+</html>

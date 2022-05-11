@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <my-header @하위 컴포넌트의 이벤트명 = "사우이 컴포넌틔의 메서드명"></my-header> -->
+    <!-- 받은 here를 해당하는 vue method 찾기 -->
+    <my-header @Here="numberEvent"></my-header>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const myheader = {
+      template: '<button @click="myEvent"> Click </button>',
+      methods:{
+        myEvent(){
+          // this.$emit('이벤트 이름', '파라미터')
+          this.$emit('Here', 10) // 데이터 root로 보냄
+        },
+      },
+    }
+
+    new Vue({
+      el: '#app',
+      components : {
+        'my-header' : myheader,
+      },
+      methods: {
+        numberEvent(value){
+          console.log(value)
+        },
+      },
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-footer></my-footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const appFooter = {
+      template: '<h3>my footer</h3>',
+    } // 이걸 하단에 대신 넣어줘도 됨
+
+    new Vue({
+      el: "#app",
+      components: {
+        'my-footer':{
+          template: '<h3>my footer</h3>'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
