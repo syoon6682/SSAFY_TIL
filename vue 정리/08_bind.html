@@ -19,7 +19,7 @@
   <div id="app">
     <!-- v-on 축약이 @click -->
     <!-- v-bind 축약은 : -->
-    <p @click="printHello" v-bind-id="elemId">Click me</p> 
+    <p @click="printHello" :id="elemId">Click me</p> 
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -33,8 +33,11 @@
         printHello() {
           if (this.elemId === 'before'){
             this.elemId = 'after'
+            console.log(this.elemId)
           } else {
-            this.elemId === 'before'
+            this.elemId = 'before'
+            console.log(this.elemId)
+
           }
         }
       }
